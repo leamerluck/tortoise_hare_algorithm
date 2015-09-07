@@ -1,7 +1,8 @@
 require 'minitest/autorun'
-require_relative 'linked-lists-bonus'
+require_relative 'tortoise_hare'
+require_relative 'linked_list_node'
 
-class TestLinkedListsBonus < Minitest::Test
+class TestRunners < Minitest::Test
 
 	describe "Without loop" do
 		def setup
@@ -12,7 +13,9 @@ class TestLinkedListsBonus < Minitest::Test
 		end
 
 		def test_finite
-			assert !@tortoise_hare.traverse_nodes
+			expected = p false; false
+			actual = @tortoise_hare.traverse_nodes
+			assert_equal expected, actual
 		end
 	end
 
@@ -26,7 +29,9 @@ class TestLinkedListsBonus < Minitest::Test
 		end
 
 		def test_infinite
-			assert @tortoise_hare.traverse_nodes
+			expected = p true; true
+			actual = @tortoise_hare.traverse_nodes
+			assert_equal expected, actual
 		end
 	end
 end
